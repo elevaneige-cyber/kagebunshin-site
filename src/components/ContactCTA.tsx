@@ -13,7 +13,7 @@ export default function ContactCTA() {
     const form = e.currentTarget;
 
     try {
-      await fetch("https://formsubmit.co/ajax/info@elevaneige.com", {
+      await fetch("https://formsubmit.co/ajax/elevaneige@gmail.com", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(Object.fromEntries(new FormData(form))),
