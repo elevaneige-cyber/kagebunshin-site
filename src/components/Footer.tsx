@@ -58,10 +58,10 @@ export default function Footer() {
                 <dt className="text-gray-500">メール</dt>
                 <dd>
                   <a
-                    href="mailto:elevaneige@gmail.com"
+                    href="mailto:info@elevaneige.com"
                     className="hover:text-white transition-colors"
                   >
-                    elevaneige@gmail.com
+                    info@elevaneige.com
                   </a>
                 </dd>
               </div>
