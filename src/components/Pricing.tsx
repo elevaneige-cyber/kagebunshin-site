@@ -7,7 +7,8 @@ const plans = [
   {
     name: "Light",
     tagline: "まず試す",
-    price: "15",
+    price: "30",
+    salePrice: "15",
     recording: "月1回収録",
     posts: "月50本〜",
     features: [
@@ -20,7 +21,8 @@ const plans = [
   {
     name: "Standard",
     tagline: "全SNS制覇",
-    price: "30",
+    price: "60",
+    salePrice: "30",
     recording: "月2回収録",
     posts: "月100本〜",
     features: [
@@ -34,7 +36,8 @@ const plans = [
   {
     name: "Premium",
     tagline: "フル支援",
-    price: "50",
+    price: "100",
+    salePrice: "50",
     recording: "月4回収録",
     posts: "月200本〜",
     features: [
@@ -75,6 +78,17 @@ export default function Pricing() {
           <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
             規模やご要望に合わせて、最適なプランをご提案します
           </p>
+
+          {/* Launch campaign banner */}
+          <div className="mt-8 inline-flex items-center gap-3 bg-red-50 border border-red-200 rounded-2xl px-6 py-4">
+            <span className="text-xl">🎉</span>
+            <div className="text-left">
+              <p className="text-sm font-black text-red-600 tracking-wide">リリース記念キャンペーン</p>
+              <p className="text-xs text-red-500 mt-0.5">
+                先着<span className="font-bold text-base">5社</span>限定 ・ 通常価格より<span className="font-bold text-base">50%OFF</span>
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Plans */}
@@ -96,12 +110,26 @@ export default function Pricing() {
                   RECOMMENDED
                 </div>
               )}
+
+              {/* Campaign badge */}
+              <div className="absolute -top-3 right-4 px-3 py-1 rounded-full bg-red-500 text-white text-xs font-bold">
+                先着5社 半額
+              </div>
+
               <div className="text-center mb-6">
                 <h3 className="text-lg font-bold text-gray-900">{plan.name}</h3>
                 <p className="text-sm text-gray-500 mt-1">{plan.tagline}</p>
                 <div className="mt-4">
-                  <span className="text-4xl font-black text-primary-700">{plan.price}</span>
-                  <span className="text-base text-gray-500">万円〜/月</span>
+                  {/* Strikethrough regular price */}
+                  <div className="flex items-baseline justify-center gap-1 mb-1">
+                    <span className="text-sm text-gray-400 line-through">{plan.price}万円〜</span>
+                    <span className="text-xs text-gray-400">/ 月</span>
+                  </div>
+                  {/* Sale price */}
+                  <div className="flex items-baseline justify-center gap-0.5">
+                    <span className="text-4xl font-black text-red-600">{plan.salePrice}</span>
+                    <span className="text-base text-gray-500">万円〜/月</span>
+                  </div>
                 </div>
                 <p className="text-sm text-gray-500 mt-2">
                   {plan.recording} / {plan.posts}
@@ -134,7 +162,7 @@ export default function Pricing() {
         </div>
 
         <p className="text-center text-xs text-gray-400 mt-8">
-          ※ 料金の詳細は、ヒアリング後にお見積りをお出しします
+          ※ 料金の詳細は、ヒアリング後にお見積りをお出しします。キャンペーン価格は先着5社に達し次第終了します。
         </p>
 
         {/* Options */}
